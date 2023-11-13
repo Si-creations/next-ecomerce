@@ -2,6 +2,7 @@ import "./globals.css";
 import Nav from "./components/Nav";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import Hydrate from "./components/Hydrate";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,13 +15,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   //Fetch the user
-  const session = await getServerSession(authOptions)
-  //console.log(session) > this shoes user in terminal
+  const session = await getServerSession(authOptions);
+  //console.log(session) > this shows user in terminal
   return (
     <html lang="en">
       <body className="mx-64">
-        <Nav user={session?.user} expires={session?.expires as string}/>
-        {children}
+        <Hydrate>
+          <Nav user={session?.user} expires={session?.expires as string} />
+          {children}
+        </Hydrate>
       </body>
     </html>
   );

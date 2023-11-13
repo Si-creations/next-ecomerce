@@ -1,12 +1,23 @@
 import Image from "next/image";
 import formatPrice from "@/util/PriceFormat";
-import { AddCartType } from "@/types/AddCartType";
+import { ProductType } from "@/types/ProductType";
 import Link from "next/link";
 
-export default function Product({ name, image, price, id }: AddCartType) {
+export default function Product({
+  name,
+  image,
+  unit_amount,
+  id,
+  description,
+  metadata,
+}: ProductType) {
+  const { features } = metadata;
   return (
     <Link
-      href={{ pathname: `/product/${id}`, query: { name, image, price, id } }}
+      href={{
+        pathname: `/product/${id}`,
+        query: { name, image, unit_amount, id, description, features },
+      }}
     >
       <div className="text-gray-700">
         <Image
@@ -19,7 +30,7 @@ export default function Product({ name, image, price, id }: AddCartType) {
         <div className="font-medium py-2">
           <h1>{name}</h1>
           <h2 className="text-sm text-teal-700">
-            {price !== null ? formatPrice(price) : "N/A"}
+            {unit_amount !== null ? formatPrice(unit_amount) : "N/A"}
           </h2>
         </div>
       </div>
