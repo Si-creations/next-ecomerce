@@ -3,6 +3,7 @@ import { persist } from "zustand/middleware";
 import { AddCartType } from "./types/AddCartType";
 
 type CartItem = {
+  image: string 
   name: string;
   id: string;
   images?: string[];
