@@ -3,6 +3,10 @@ import Nav from "./components/Nav";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Hydrate from "./components/Hydrate";
+import { Playfair_Display } from "next/font/google";
+
+//Define main font
+const playfair = Playfair_Display({ weight: ["400", "500", "700"], subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -19,7 +23,7 @@ export default async function RootLayout({
   //console.log(session) > this shows user in terminal
   return (
     <html lang="en">
-      <body className="mx-64">
+      <body className={`mx-64 ${playfair.className}`}>
         <Hydrate>
           <Nav user={session?.user} expires={session?.expires as string} />
           {children}

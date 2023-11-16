@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import Product from "./components/Product";
+import Product from "./components/product";
 
 const getProducts = async () => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
