@@ -23,7 +23,7 @@ export default async function RootLayout({
   //console.log(session) > this shows user in terminal
   return (
     <html lang="en">
-      <body className={`mx-64 ${playfair.className}`}>
+      <body className={`mx-4 lg:mx-48 ${playfair.className}`}>
         <Hydrate>
           <Nav user={session?.user} expires={session?.expires as string} />
           {children}
