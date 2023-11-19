@@ -6,7 +6,7 @@ import AddCart from "./AddCart";
 export default async function Product({ searchParams }: SearchParamType) {
   console.log(searchParams);
   return (
-    <div className="flex justify-between gap-24 lg:p-12 text-gray-700 sm: flex-col">
+    <div className="flex justify-between flex-col lg:gap-24 md:gap-12 sm:gap-4  text-gray-700 sm:flex-row">
       <Image
         src={searchParams.image}
         alt={searchParams.name}
@@ -22,7 +22,7 @@ export default async function Product({ searchParams }: SearchParamType) {
             {searchParams.unit_amount && formatPrice(searchParams.unit_amount)}
           </p>
         </div>
-        <AddCart {...searchParams}/>
+        <AddCart {...searchParams} />
       </div>
     </div>
   );
