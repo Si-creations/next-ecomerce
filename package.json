@@ -17,6 +17,7 @@
     "@types/react": "18.2.35",
     "@types/react-dom": "18.2.14",
     "framer-motion": "^10.16.5",
+    "micro": "^10.0.1",
     "next": "^13.2.4",
     "prisma": "^4.16.2",
     "react": "18.2.0",
