@@ -8,6 +8,7 @@ export default function Product({
   image,
   unit_amount,
   id,
+  quantity,
   description,
   metadata,
 }: ProductType) {
@@ -16,7 +17,7 @@ export default function Product({
     <Link
       href={{
         pathname: `/product/${id}`,
-        query: { name, image, unit_amount, id, description, features },
+        query: { name, image, unit_amount,quantity, id, description, features },
       }}
     >
       <div className="text-gray-700">
