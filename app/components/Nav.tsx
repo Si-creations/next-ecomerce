@@ -12,9 +12,9 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Nav({ user }: Session) {
   const cartStore = useCartStore();
   return (
-    <nav className="flex justify-between items-center py-12">
+    <nav className="flex justify-between items-center py-8 ">
       <Link href={"/"}>
-        <h1 className="bg-teal-700 text-white py-2 px-4 rounded-md">Home</h1>
+        <h1 className=" btn bg-accent text-white py-2 px-4 rounded-md">Home</h1>
       </Link>
       <ul className="flex items-center gap-12">
         {/* Toggle the cart */}
@@ -29,7 +29,7 @@ export default function Nav({ user }: Session) {
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}
                 exit={{ scale: 0 }}
-                className="bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
+                className="bg-accent text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
               >
                 {cartStore.cart.reduce(
                   (total, product) => total + product.quantity,
@@ -41,19 +41,21 @@ export default function Nav({ user }: Session) {
         </li>
         {/* if the user is not signed in */}
         {!user && (
-          <li className="bg-teal-500 text-white py-2 px-4 rounded-md">
+          <li className="bg-primary text-white py-2 px-4 rounded-md">
             <button onClick={() => signIn()}>Sign in</button>
           </li>
         )}
         {user && (
           <li>
-            <Image
-              src={user?.image as string}
-              alt={user.name as string}
-              width={43}
-              height={43}
-              className="rounded-full"
-            />
+            <Link href={"/dashboard"}>
+              <Image
+                src={user?.image as string}
+                alt={user.name as string}
+                width={43}
+                height={43}
+                className="rounded-full"
+              />
+            </Link>
           </li>
         )}
       </ul>

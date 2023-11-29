@@ -11,7 +11,7 @@ import OrderConfirmed from "./OrderConfirmed";
 
 export default function Cart() {
   const cartStore = useCartStore();
-  console.log(cartStore.isOpen);
+  // console.log(cartStore.isOpen);
   const totalPrice = cartStore.cart.reduce((total, product) => {
     if (product.unit_amount !== null && product.unit_amount !== undefined) {
       return total + product.unit_amount * product.quantity;
@@ -32,7 +32,7 @@ export default function Cart() {
       <motion.div
         layout
         onClick={(e) => e.stopPropagation()}
-        className="bg-white absolute right-0 top-0  h-screen p-12 overflow-y-scroll text-gray-70 w-full lg:w-2/5"
+        className="bg-white absolute right-0 top-0  h-screen p-12 overflow-y-scroll  w-full lg:w-2/5"
       >
         {cartStore.onCheckout === "cart" && (
           <button
@@ -108,7 +108,7 @@ export default function Cart() {
             <p>Total: {formatPrice(totalPrice)}</p>
             <button
               onClick={() => cartStore.setCheckout("checkout")}
-              className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white"
+              className=" btn py-2 mt-4 bg-accent w-full rounded-md text-white"
             >
               Checkout
             </button>

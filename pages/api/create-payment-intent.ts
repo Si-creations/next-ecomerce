@@ -45,7 +45,7 @@ export default async function handler(
         description: item.description || null,
         unit_amount: parseFloat(item.unit_amount),
         image: item.image,
-        quantity: item.quanity,
+        quantity: item.quantity,
       })),
     },
   };
