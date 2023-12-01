@@ -80,5 +80,19 @@ export const useCartStore = create<CartState>()(
     { name: "cart-store" }
   )
 );
+type ThemeState = {
+  mode: "light" | "dark";
+  toggleMode: (theme: "light" | "dark") => void;
+};
+
+export const useThemeStore = create<ThemeState>()(
+  persist(
+    (set) => ({
+      mode: "light",
+      toggleMode: (theme) => set((state) => ({ mode: theme })),
+    }),
+    { name: "theme.store" }
+  )
+);
 
 // Existing item > see if an item allready exist in our cart  > if it does map over it and make sure that the cartItem.id matches the item.id and if it does just update quantity +1
