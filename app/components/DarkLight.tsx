@@ -16,7 +16,7 @@ export default function DarkLight() {
             themeStore.toggleMode("light");
           }
         }}
-      /> 
+      />  
 
       <svg
         className="swap-off fill-current w-8 h-8"

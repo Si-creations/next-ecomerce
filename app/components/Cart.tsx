@@ -32,12 +32,12 @@ export default function Cart() {
       <motion.div
         layout
         onClick={(e) => e.stopPropagation()}
-        className="bg-white absolute right-0 top-0  h-screen p-12 overflow-y-scroll  w-full lg:w-2/5"
+        className="bg-base-200 absolute right-0 top-0  h-screen p-12 overflow-y-scroll  w-full lg:w-2/5"
       >
         {cartStore.onCheckout === "cart" && (
           <button
             onClick={() => cartStore.toggleCart()}
-            className="text-sm font-bold pb-12"
+            className="text-sm font-bold pb-12 "
           >
             Back to store 🏃
           </button>
@@ -54,7 +54,11 @@ export default function Cart() {
         {cartStore.onCheckout === "cart" && (
           <>
             {cartStore.cart.map((item) => (
-              <motion.div layout key={item.id} className="flex py-4 gap-4">
+              <motion.div
+                layout
+                key={item.id}
+                className="flex p-4 gap-4 bg-base-100 my-4 rounded-lg"
+              >
                 <Image
                   className="rounded-md h-24"
                   src={item.image}
@@ -65,8 +69,12 @@ export default function Cart() {
                 <motion.div layout>
                   <h2>{item.name}</h2>
                   <div className="flex gap-2">
-                    <h2>Quantity: {item.quantity}</h2>
+                    <h2>
+                      Quantity:{" "}
+                      <span className="text-accent">{item.quantity}</span>
+                    </h2>
                     <button
+                      className="text-red-500"
                       onClick={() =>
                         cartStore.removeProduct({
                           id: item.id,
@@ -80,6 +88,7 @@ export default function Cart() {
                       <IoRemoveCircle />
                     </button>
                     <button
+                      className="text-green-500"
                       onClick={() =>
                         cartStore.addProduct({
                           id: item.id,
@@ -94,7 +103,7 @@ export default function Cart() {
                     </button>
                   </div>
 
-                  <p className="text-sm">
+                  <p className="text-sm text-accent">
                     {item.unit_amount && formatPrice(item.unit_amount)}
                   </p>
                 </motion.div>
@@ -105,7 +114,10 @@ export default function Cart() {
         {/* Checkout and total */}
         {cartStore.cart.length > 0 && cartStore.onCheckout === "cart" ? (
           <motion.div layout>
-            <p>Total: {formatPrice(totalPrice)}</p>
+            <p>
+              Total:{" "}
+              <span className="text-accent">{formatPrice(totalPrice)}</span>
+            </p>
             <button
               onClick={() => cartStore.setCheckout("checkout")}
               className=" btn py-2 mt-4 bg-accent w-full rounded-md text-white"

@@ -36,10 +36,10 @@ export default async function Dashboard() {
   }
   return (
     <div>
-      <h1 className="md:pl-8 text-xl font-bold mb-5">Your orders</h1>
+      <h1 className="md:pl-0  text-xl font-bold mb-5 text-center">Your orders</h1>
       <div className="font-medium">
         {orders.map((order) => (
-          <div key={order.id} className="rounded-lg md:p-8 md:mb-0 mb-8 bg-base-200 p-4">
+          <div key={order.id} className="rounded-lg lg:p-8  mb-8 bg-base-200 p-4">
             <h2 className="text-xs font-medium">Order reference: {order.id}</h2>
             <p className="text-xs">
               Time: {new Date(order.createDate).toString()}
