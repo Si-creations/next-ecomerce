@@ -63,8 +63,8 @@ export default function Cart() {
                   className="rounded-md h-24"
                   src={item.image}
                   alt={item.name}
-                  width={120}
-                  height={120}
+                  width={125}
+                  height={125}
                 />
                 <motion.div layout>
                   <h2>{item.name}</h2>
