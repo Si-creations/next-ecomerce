@@ -25,8 +25,9 @@ export default function Product({
           src={image}
           alt={name}
           width={800}
-          height={600}
-          className="w-full h-100 rounded-lg"
+          height={800}
+          className="w-full h-96 object-cover rounded-lg"
+          priority={true}
         />
         <div className="font-medium text-md py-2">
           <h1>{name}</h1>
